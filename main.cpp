@@ -47,7 +47,7 @@ int main( int argc, char *argv[] ) {
 
     // Write data to a file
     QString oFileName = QString( "output.txt" );
-    writeResult(oFileName, data);
+    writeResult( oFileName, data );
     if ( errorCode != ErrorType::errNone ) {
         return showError( oFileName, errorCode );
     }
@@ -113,18 +113,18 @@ void showData( const QString &data ) {
  */
 ErrorType showError( const QString &fileName, ErrorType errorCode ) {
     switch ( errorCode ) {
-    case ErrorType::errFileOpen:
-        std::cerr << "Error: cannot open the file " << fileName.toStdString( ) << std::endl;
-        break;
-    case ErrorType::errFileWrite:
-        std::cerr << "Error: cannot write to the file " << fileName.toStdString( ) << std::endl;
-        break;
-    case ErrorType::errDataBad:
-        std::cerr << "Error: incorrect data in the file " << fileName.toStdString( ) << std::endl;
-        break;
-    default:
-        std::cerr << "Error code: " << errorCode << "; file name: " << fileName.toStdString( ) << std::endl;
-        break;
+        case ErrorType::errFileOpen:
+            std::cerr << "Error: cannot open the file " << fileName.toStdString( ) << std::endl;
+            break;
+        case ErrorType::errFileWrite:
+            std::cerr << "Error: cannot write to the file " << fileName.toStdString( ) << std::endl;
+            break;
+        case ErrorType::errDataBad:
+            std::cerr << "Error: incorrect data in the file " << fileName.toStdString( ) << std::endl;
+            break;
+        default:
+            std::cerr << "Error code: " << errorCode << "; file name: " << fileName.toStdString( ) << std::endl;
+            break;
     }
 
     return errorCode;
